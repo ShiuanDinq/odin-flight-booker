@@ -22,16 +22,36 @@ airports = Airport.create([
   { name: 'Las Vegas', code: 'LAS'}
 ])
 
-flights = Flight.create([
-  { start_datetime: '2020-10-22, 10:10:00', flight_duration: 1, from_airport_id: airports[1].id, to_airport_id:airports[9].id },
-  { start_datetime: '2020-06-15, 20:20:00', flight_duration: 1.5, from_airport_id: airports[2].id, to_airport_id:airports[8].id },
-  { start_datetime: '2020-07-07, 10:10:00', flight_duration: 1, from_airport_id: airports[3].id, to_airport_id:airports[8].id },
-  { start_datetime: '2020-09-19, 20:20:00', flight_duration: 1.5, from_airport_id: airports[4].id, to_airport_id:airports[7].id },
-  { start_datetime: '2020-10-27, 10:10:00', flight_duration: 1, from_airport_id: airports[5].id, to_airport_id:airports[6].id },
-  { start_datetime: '2020-10-17, 20:20:00', flight_duration: 1.5, from_airport_id: airports[6].id, to_airport_id:airports[5].id },
-  { start_datetime: '2020-12-15, 10:10:00', flight_duration: 1, from_airport_id: airports[7].id, to_airport_id:airports[4].id },
-  { start_datetime: '2020-11-12, 20:20:00', flight_duration: 1.5, from_airport_id: airports[8].id, to_airport_id:airports[3].id },
-  { start_datetime: '2020-01-22, 10:10:00', flight_duration: 1, from_airport_id: airports[9].id, to_airport_id:airports[2].id },
-  { start_datetime: '2020-05-02, 20:20:00', flight_duration: 1.5, from_airport_id: airports[0].id, to_airport_id:airports[1].id },
-])
+flight_durations = [1, 1.5, 2, 2.5]
+
+start_dates = [
+  '2020-10-01',
+  '2020-10-02',
+  '2020-10-03',
+  '2020-10-04',
+  '2020-10-05',
+  '2020-10-06',
+  '2020-10-07',
+  '2020-10-08',
+  '2020-10-09',
+  '2020-10-10',
+]
+
+start_times = [
+  '09:00:00',
+  '12:00:00',
+  '18:00:00',
+]
+
+airports.each do |from_airport|
+  airports.each do |to_airport|
+    start_dates.each do |date|
+      start_times.each do |time|
+        next if from_airport == to_airport
+        Flight.create(start_date: date, start_time: time, flight_duration: flight_durations.sample, from_airport_id: from_airport.id, to_airport_id: to_airport.id )
+      end
+    end
+  end
+end
+
 

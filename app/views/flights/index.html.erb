@@ -1,0 +1,21 @@
+<h1>Flights</h1>
+
+<%= form_with model: @flight , method: :get, local: true do |f| %>
+  <%= f.label :from_airport_id, 'From' %>
+  <%= f.select :from_airport_id, @airport_options, :selected => params[:from_airport_id] %>
+  <%= f.label :to_airport_id, 'To' %>
+  <%= f.select :to_airport_id, @airport_options, :selected => params[:to_airport_id]  %>
+  <%= f.label :start_datetime, 'To' %>
+  <%= f.select :start_date, @date_options, :selected => params[:start_date]  %>
+  <%= f.submit 'search' %>
+<% end %>
+
+<% if @available_flights %>
+  <% if @available_flights.empty? %>
+    <p> No flight </p>
+  <% else %>
+    <% @available_flights.each do |flight| %>
+      <%= link_to flight.from_airport.name, flight_path(flight) %>
+    <% end %>
+  <% end %>
+<% end %>
