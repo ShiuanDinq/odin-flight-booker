@@ -13,14 +13,14 @@ class FlightsController < ApplicationController
       elsif params[:from_airport_id] == params[:to_airport_id]
         flash.now[:alert] = "Please check your input"   
       else
-        @available_flights = Flight.where(flight_params) unless flight_params.empty?
+        @available_flights = Flight.where(flight_params).includes(:from_airport, :to_airport).to_a unless flight_params.empty?
       end
     end
   end
 
   private
   def flight_params
-    params.permit(:start_date, :from_airport_id, :to_airport_id)
+    params.permit(:start_date, :start_time, :from_airport_id, :to_airport_id)
   end
 
 

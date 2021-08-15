@@ -1,24 +1,15 @@
 <section class="section">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="columns card">
-          <div class="column">
-            <%= @booking.flight.from_airport.name %>
-          </div>
-          <div class="column">
-            <%= @booking.flight.to_airport.name %>
-          </div>
-          <div class="column">
-            <%= @booking.flight.start_date.strftime("%d/%m/%Y") %>
-          </div>
-          <div class="column">
-            <%= @booking.flight.start_time.strftime("%I:%M %p") %>
-          </div>
-        </div>
-        <%= render 'booking_form' %>      
+    <div class="columns">
+      <div class="column is-half">
+        <%= render 'booking_form' %>
+      </div>
+      <div class="column is-half">
+        <%= render 'booking_info' %>
       </div>
     </div>
   </div>
 </section>
+
+
 

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="columns is-centered">
-    <div class="column">
+    <div class="column" id="flight">
       <%= form_with model: @flight , method: :get, local: true do |f| %>
         <%= f.select :from_airport_id, @airport_options, :selected => params[:from_airport_id], include_blank: 'Origin' %>
         <%= f.select :to_airport_id, @airport_options, :selected => params[:to_airport_id], include_blank: 'Destination'  %>

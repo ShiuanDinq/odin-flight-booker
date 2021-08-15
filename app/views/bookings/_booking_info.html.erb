@@ -1,0 +1,27 @@
+<div class="card box">
+  <div class="card-header has-background-primary">
+    <div class="card-header-title ">
+      Booking detail
+    </div>
+  </div>
+  <div class="card-content ">
+    <div class="content">
+      <p class="is-size-6">
+        From: <%= @booking.flight.from_airport.name %>
+      </p>
+
+      <p class="is-size-6">
+        To: <%= @booking.flight.to_airport.name %>
+      </p>
+
+      <p class="is-size-6">
+        Date: <%= @booking.flight.start_date.strftime("%d/%m/%Y") %>
+      </p>
+
+      <p class="is-size-6">
+        Time: <%= @booking.flight.start_time.strftime("%I:%M %p") %>
+      </p>
+
+    </div>
+  </div>
+</div>     

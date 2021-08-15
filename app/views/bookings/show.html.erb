@@ -1,6 +1,13 @@
-<% @booking.passengers.each do |passenger| %>
-  <p>
-  <%= passenger.name %>
-  </p>
-<% end %>
+
+
+<div class="columns">
+  <div class="column is-half">
+    <%= render 'booking_info' %>
+  </div>
+  <div class="column is-half">
+    <%= render 'passenger_info' %>
+  </div>
+</div>
+
+
 

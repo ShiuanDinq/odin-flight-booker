@@ -1,0 +1,41 @@
+
+  <div class="vertical">
+  <p class="is-size-3">
+    Bookings
+  </p>
+
+
+  <% @bookings.each do |booking| %>
+    <%= link_to booking do %>
+      <div class="columns has-background-primary is-mobile">
+        <div class="column center">
+          <p class="is-size-7">
+            <%= booking.flight.from_airport.name %>
+          </p>
+        </div>
+
+        <div class="column center">
+          <i class="fas fa-angle-double-right is-size-4"></i>
+        </div>
+
+        <div class="column center">
+          <p class="is-size-7">
+            <%= booking.flight.to_airport.name %>
+          </p>
+        </div>
+
+        <div class="column center">
+          <p class="is-size-7">
+            <%= booking.flight.start_date.strftime("%d/%m/%Y") %>
+          </p>
+        </div>
+
+        <div class="column center">
+          <p class="is-size-7">
+            <%= booking.flight.start_time.strftime("%I:%M %p") %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

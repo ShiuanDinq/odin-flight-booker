@@ -26,7 +26,7 @@
 }
 
 
-select {
+#flight select {
   flex-grow: 1;
   text-align-last: center;
   padding: 0.5rem;
@@ -40,19 +40,27 @@ select {
 }
 
 
-option {
+#flight option {
   background-color: rgb(0, 0, 0);
 }
 
-input {
+#flight input {
   font-size: 1rem;
   border-radius: 0.3rem;
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 
 }
 
+.vertical{
+  display: flex;
+  flex-direction: column;
+}
 
-form{
+.vertical > * {
+  margin: 0.5rem;
+}
+
+#flight form{
   display:flex;
   flex-direction: row;
 }
@@ -62,6 +70,21 @@ form{
   justify-content: center;
   align-items: center;
 
+}
+
+.navbar-item {
+  display: flex;
+  justify-content: flex-end;
+  background-color: black;
+}
+
+.navbar-item > a {
+  flex-grow: 1;
+}
+
+.navbar-menu{
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .grid{
@@ -85,7 +108,7 @@ form{
 .f{grid-area: f;}
 
 @media(max-width:520px){
-  form{
+  #flight form{
     flex-direction: column;
   }
 

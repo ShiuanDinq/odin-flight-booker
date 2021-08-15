@@ -2,7 +2,7 @@
 <% if @available_flights %>
 <div class="columns is-centered">
   <div class="column vcolumns">
-    <% if @available_flights.empty? %>
+    <% if @available_flights.length == 0 %>
       <p class="is-size-4"> No flight </p>
     <% else %>
       <% @available_flights.each do |flight| %>   

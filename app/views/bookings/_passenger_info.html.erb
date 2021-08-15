@@ -1,0 +1,26 @@
+<div class="vertical">
+<% i=1 %>
+<% @booking.passengers.each do |passenger| %>
+  <div class="columns box">
+    <div class="column center">
+      <p class="is-size-5">
+        <%= "Passenger #{i}" %>
+      </p>
+    </div>
+
+    <div class="column center">
+    <div class="vertical">
+    <p class="is-size-6">
+      Name: <%= passenger.name %>
+    </p>
+    <p class="is-size-6">
+      Email: <%= passenger.email %>
+    </p>
+  </div>
+    </div>
+
+  </div>
+  <% i += 1 %>
+<% end %>
+
+</div>

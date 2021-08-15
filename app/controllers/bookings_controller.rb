@@ -1,9 +1,14 @@
 class BookingsController < ApplicationController
 
+  def index
+    @bookings = Booking.includes(flight: [:from_airport, :to_airport]).all
+  end 
+  
   def new
     @passenger_count = params[:passenger_count].to_i
     @booking = Booking.new(flight_id: params[:flight_id])
     @passenger_count.times { @booking.passengers.build }
+    @flight = Flight.includes(:to_airport, :from_airport).find(params[:flight_id])
   end
 
   def create
@@ -19,7 +24,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    @booking = Booking.includes( :passengers, flight: [:from_airport, :to_airport],).find(params[:id])
   end
 
   private
