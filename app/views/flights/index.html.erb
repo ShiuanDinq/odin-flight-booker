@@ -1,14 +1,10 @@
 <h1>Flights</h1>
 
 <%= form_with model: @flight , method: :get, local: true do |f| %>
-  <%= f.label :from_airport_id, 'From' %>
-  <%= f.select :from_airport_id, @airport_options, :selected => params[:from_airport_id] %>
-  <%= f.label :to_airport_id, 'To' %>
-  <%= f.select :to_airport_id, @airport_options, :selected => params[:to_airport_id]  %>
-  <%= f.label :start_datetime, 'To' %>
-  <%= f.select :start_date, @date_options, :selected => params[:start_date]  %>
-  <%= f.label :passenger_count, 'Passenger' %>
-  <%= f.select :passenger_count, [1,2,3,4], :selected => params[:passenger_count]  %>
+  <%= f.select :from_airport_id, @airport_options, :selected => params[:from_airport_id], include_blank: 'Origin' %>
+  <%= f.select :to_airport_id, @airport_options, :selected => params[:to_airport_id], include_blank: 'Destination'  %>
+  <%= f.select :start_date, @date_options, :selected => params[:start_date], include_blank: 'Date' %>
+  <%= f.select :passenger_count, [1,2,3,4], :selected => params[:passenger_count], include_blank: 'Passenger' %>
   <%= f.submit 'search' %>
 <% end %>
 
