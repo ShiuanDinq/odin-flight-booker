@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   def new
     @passenger_count = params[:passenger_count].to_i
-    @booking = Booking.new
+    @booking = Booking.new(flight_id: params[:flight_id])
     @passenger_count.times { @booking.passengers.build }
   end
 
@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to root_path
     else
+      flash.now.alert = @booking.errors.full_messages.to_sentence
       render :new
     end
   end
