@@ -7,6 +7,8 @@
   <%= f.select :to_airport_id, @airport_options, :selected => params[:to_airport_id]  %>
   <%= f.label :start_datetime, 'To' %>
   <%= f.select :start_date, @date_options, :selected => params[:start_date]  %>
+  <%= f.label :passenger_count, 'Passenger' %>
+  <%= f.select :passenger_count, [1,2,3,4], :selected => params[:passenger_count]  %>
   <%= f.submit 'search' %>
 <% end %>
 
@@ -14,8 +16,9 @@
   <% if @available_flights.empty? %>
     <p> No flight </p>
   <% else %>
+
     <% @available_flights.each do |flight| %>
-      <%= link_to flight.from_airport.name, flight_path(flight) %>
+      <%= link_to flight.id, new_booking_path(:flight_id => flight.id, :passenger_count => params[:passenger_count]) %>
     <% end %>
   <% end %>
 <% end %>

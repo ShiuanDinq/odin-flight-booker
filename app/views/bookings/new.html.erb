@@ -1,0 +1,15 @@
+<% @passenger_count.times do %>
+  <p>haha</p>
+<% end %>
+
+<%= form_with model: @booking do |f| %>
+
+  <%= f.hidden_field :flight_id , value: params[:flight_id] %>
+    <%= f.fields_for :passengers do |passenger_form| %>
+      <%= passenger_form.label :name %>
+      <%= passenger_form.text_field :name %>
+      <%= passenger_form.label :email %>
+      <%= passenger_form.text_field :email %>
+  <% end %>
+<%= f.submit %>
+<% end %>

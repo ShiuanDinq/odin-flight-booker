@@ -8,6 +8,8 @@
 
 Airport::delete_all
 Flight::delete_all
+Booking::delete_all
+Passenger::delete_all
 
 airports = Airport.create([
   { name: 'Atlanta', code: 'ATL'}, 
