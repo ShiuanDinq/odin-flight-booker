@@ -22,6 +22,35 @@
     </div>      
   <% end %>
 
+  <nav class="navbar has-background-black">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <%= link_to root_path do %>
+            <h1 class="title is-2 has-text-weight-bold has-text-white">OdinAir</h1>
+          <% end %>
+        </div>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <%= link_to 'Flights', root_path, class: "button" %>
+          </div>
+
+          <div class="navbar-item">
+            <%= link_to 'Bookings', bookings_path, class: "button" %>
+          </div>
+                
+        </div>
+      </div>
+    </nav>
+
+
     <%= yield %>
   </body>
 </html>

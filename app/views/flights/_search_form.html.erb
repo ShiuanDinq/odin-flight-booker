@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column">
+      <%= form_with model: @flight , method: :get, local: true do |f| %>
+        <%= f.select :from_airport_id, @airport_options, :selected => params[:from_airport_id], include_blank: 'Origin' %>
+        <%= f.select :to_airport_id, @airport_options, :selected => params[:to_airport_id], include_blank: 'Destination'  %>
+        <%= f.select :start_date, @date_options, :selected => params[:start_date], include_blank: 'Date' %>
+        <%= f.select :passenger_count, [1,2,3,4], :selected => params[:passenger_count], include_blank: 'Passenger' %>
+        <%= f.submit 'search' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+

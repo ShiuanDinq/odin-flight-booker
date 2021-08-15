@@ -1,13 +1,24 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="columns card">
+          <div class="column">
+            <%= @booking.flight.from_airport.name %>
+          </div>
+          <div class="column">
+            <%= @booking.flight.to_airport.name %>
+          </div>
+          <div class="column">
+            <%= @booking.flight.start_date.strftime("%d/%m/%Y") %>
+          </div>
+          <div class="column">
+            <%= @booking.flight.start_time.strftime("%I:%M %p") %>
+          </div>
+        </div>
+        <%= render 'booking_form' %>      
+      </div>
+    </div>
+  </div>
+</section>
 
-
-<%= form_with model: @booking, method: :post do |f| %>
-
-  <%= f.hidden_field :flight_id %>
-    <%= f.fields_for :passengers do |passenger_form| %>
-      <%= passenger_form.label :name %>
-      <%= passenger_form.text_field :name %>
-      <%= passenger_form.label :email %>
-      <%= passenger_form.text_field :email %>
-  <% end %>
-<%= f.submit %>
-<% end %>
