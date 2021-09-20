@@ -54,11 +54,16 @@
 .vertical{
   display: flex;
   flex-direction: column;
+  margin:  0 2rem;
 }
 
-.vertical > * {
-  margin: 0.5rem;
-}
+.vertical > * + * {
+  margin-top: 2rem;
+}  
+
+// .vertical > * {
+//   margin: 0.5rem;
+// }
 
 #flight form{
   display:flex;
@@ -106,6 +111,90 @@
 .e{grid-area: e;}
 
 .f{grid-area: f;}
+
+// .slide-container{
+//   height: 200px;
+//   width:200px;
+// }
+
+.slide-container {
+  position: relative;
+  margin: 0;
+  
+}
+
+.slide{
+  display: none;
+  animation: fade 1s forwards ease-in-out;
+  position:relative;
+
+}
+
+.slide-image{
+  height: 20rem;
+  width:100vw;
+  object-fit: cover;
+
+}
+
+
+.slide-content{
+  position: absolute;
+  top: 20%;
+  left:20%;
+}
+
+.fa-angle-left{
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  transform: translate(0, -50%); 
+  font-size: 2rem;
+  color:crimson
+}
+
+.fa-angle-right{
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%); 
+  font-size: 2rem;
+  color:crimson;
+
+}
+
+.dot {
+  width: 1rem;
+  height: 1rem;
+  background-color: crimson;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.dot.active{
+  opacity: 1;
+}
+
+.slide-button {
+  position: absolute;
+  bottom:1rem;
+  right: 50%;
+  transform: translate(50%, 0); 
+}
+
+
+@keyframes fade {
+  0%{
+    opacity: .4;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
 
 @media(max-width:520px){
   #flight form{
